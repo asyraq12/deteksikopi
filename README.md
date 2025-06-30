@@ -4,7 +4,7 @@ Aplikasi web sederhana menggunakan Flask dan TensorFlow/Keras untuk mengklasifik
 
 ## Struktur Proyek
 
-projectcv-app/
+```projectcv-app/
 ├── static/
 │   ├── uploads/                # Folder untuk menyimpan gambar yang diunggah
 │   │   └── buah_kopi.jpeg
@@ -16,6 +16,7 @@ projectcv-app/
 ├── model.h5                    # Model Keras yang telah dilatih untuk klasifikasi
 └── venv/                       # (Opsional) Lingkungan virtual Python
 └── requirements.txt            # Daftar dependensi Python
+```
 
 ## Fitur
 
