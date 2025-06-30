@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Buah Kopi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Klasifikasi Buah Kopi</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required>
+      <button type="submit">Prediksi</button>
+    </form>
+
+    {% if label %}
+    <div class="result">
+      <h2>Hasil Prediksi:</h2>
+      <p><strong>{{ label }}</strong></p>
+      <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="300">
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
