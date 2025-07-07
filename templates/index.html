@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Buah Kopi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8fb;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .custom-file-upload {
+      display: inline-block;
+      padding: 8px 20px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 20px;
+      border: none;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 30px;
+    }
+    .result img {
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Klasifikasi Buah Kopi</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+      <label for="file-upload" class="custom-file-upload">
+        Choose File
+      </label>
+      <input id="file-upload" type="file" name="image" accept="image/*" required>
+      <br><br>
+      <button type="submit">Prediksi</button>
+    </form>
+
+    {% if label and confidence is not none %}
+    <div class="result">
+      <h2>Hasil Prediksi:</h2>
+      <p><strong>{{ label }}</strong></p>
+      {% if confidence > 77%}
+      <p>Akurasi: <strong>{{ confidence }}%</strong></p>
+      {%endif%}
+      <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="300">
+    </div>
+    {% endif %}
+
+  </div>
+</body>
+</html>
